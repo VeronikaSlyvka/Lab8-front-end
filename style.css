@@ -10,7 +10,7 @@ html {
 }
 
 :root {
-    --primary-color: #007bff; 
+    --primary-color: #207dff; 
     --secondary-color: #fe5f55; 
     --text-dark: #000000;
     --text-light: #6c757d;
@@ -108,7 +108,7 @@ p {
 
 .btn-light {
     background-color: var(--white);
-    color: var(--primary-color);
+    color: var(--text-dark);
     border-color: var(--white);
 }
 .btn-light:hover {
@@ -202,6 +202,7 @@ p {
     font-size: 28px;
     font-weight: bold;
     color: var(--text-dark);
+    font-weight: 900;
 }
 
 .nav-links {
@@ -249,10 +250,11 @@ p {
 }
 
 .hero-content h1 {
-    font-size: 52px;
+    font-size: 65px;
     color: var(--text-dark); 
     margin-top: 10px;
     line-height: 1.1;
+    font-weight: 800;
 }
 
 .hero-content p {
@@ -291,6 +293,7 @@ p {
 .about-content h2 {
     font-size: 45px;
     line-height: 1.3;
+    font-weight: 800;
 }
 .about-content h2 span {
     color: var(--primary-color);
@@ -324,8 +327,9 @@ p {
 }
 
 .services-content h2{
-    font-size: 40px;
+    font-size: 47px;
     padding-bottom: 60px;
+    font-weight: 700;
 }
 
 .service-text p{
@@ -373,11 +377,11 @@ p {
 }
 
 .form-content h3 {
-    font-size: 18px;
+    font-size: 17px;
     letter-spacing: 5px;
     text-align: left;
     color: var(--primary-color); 
-    font-weight: 600;
+    font-weight: 650;
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -390,39 +394,36 @@ form input,
 form select,
 form textarea {
     width: 100%;
-    height: 58px; /* (padding 16px*2) + (line-height ~26px) */
-    padding: 16px 20px; /* Збільшимо відступи */
-    border: 1px solid var(--border-light); /* Встановлюємо світло-сіру рамку */
-    border-radius: 30px; /* Сильно заокруглені кути */
-    font-size: 16px;
+    height: 65px; 
+    padding: 16px 20px;
+    border: 1px solid var(--border-light); 
+    border-radius: 30px; 
+    font-size: 18px;
     font-family: inherit;
-    background-color: var(--white); /* Встановлюємо білий фон */
+    background-color: var(--white); 
 }
-
+ 
 form input:focus,
 form select:focus,
 form textarea:focus {
     outline: none;
     border-color: var(--primary-color);
-    background-color: var(--white); /* Робимо білим при фокусі */
+    background-color: var(--white);
 }
 
-/* Специфічні стилі для плейсхолдерів date/time */
+
 input[type="date"], input[type="time"] {
     color: #777;
 }
 
-/* Стилізація 'select' під плейсхолдер */
 form select {
- color: #777; /* Сірий колір за замовчуванням */
+ color: #777; 
 }
 
-/* ======== 6. Priority Section ======== */
+/* 4. priority section*/
 .priority {
-    background: linear-gradient(rgba(0, 91, 179, 0.8), rgba(0, 91, 179, 0.8)), url('images/priority-bg.jpg') no-repeat center center/cover;
-    /* Потрібно замінити 'images/priority-bg.jpg' на фонове фото */
-    background-attachment: fixed; /* Ефект паралаксу */
-    padding: 100px 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/priority-bg.jpg') no-repeat center center/cover;
+    padding: 130px 0;
     color: var(--white);
     text-align: center;
 }
@@ -433,106 +434,92 @@ form select {
 }
 
 .priority-content h2 {
-    font-size: 40px;
+    font-size: 50px;
     color: var(--white);
+    font-weight: 900;
 }
 
 .priority-content p {
     font-size: 18px;
     color: rgba(255, 255, 255, 0.9);
     margin-bottom: 30px;
+    opacity: 0.9;
 }
 
-/* ======== 7. Departments Section ======== */
+.priority-content a{
+    padding: 20px 35px;
+    font-size: 17px;
+}
+
+/* 5. departments section*/
 .departments {
-    padding: 80px 0;
     background: var(--white);
 }
 
+.department-container {
+    display: flex;
+    align-items: stretch; 
+}
+
+.department-image {
+    flex: 1; 
+}
+.department-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .departments-grid {
+    flex: 2; 
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 стовпчики */
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr); 
 }
 
 .department-item {
     text-align: center;
     padding: 30px;
-    border: 1px solid var(--border-light);
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    border-top: 1px solid var(--border-light);
+    border-left: 1px solid var(--border-light);
+    transition: background-color 0.3s ease;
 }
 
-.department-item:hover {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    transform: translateY(-5px);
+.department-item h3 {
+    font-size: 25px;
+    color: var(--text-dark);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.department-item p {
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+.departments-grid {
+    border-right: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
 }
 
 .department-icon {
     font-size: 40px;
     color: var(--primary-color);
     margin-bottom: 20px;
-    /* Імітація круглого фону, як на макеті */
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    border-radius: 50%;
-    background: #e6f2ff; /* Світло-синій фон */
-    display: inline-block;
 }
 
-.department-item h3 {
-    font-size: 22px;
-    color: var(--text-dark);
+.department-item:hover {
+    background-color: var(--primary-color);
 }
 
-/* ======== Адаптивність (простий приклад) ======== */
-
-@media (max-width: 992px) {
-    /* Прибираємо зображення лікаря на малих екранах */
-    .hero-doctor-img {
-        display: none;
-    }
-    .hero-content {
-        max-width: 100%;
-        text-align: center;
-    }
-
-    .about-container {
-        flex-direction: column;
-    }
-
-    .departments-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 стовпчики на планшетах */
-    }
+.department-item:hover .department-icon {
+    color: var(--white); 
 }
 
-@media (max-width: 768px) {
-    .main-nav {
-        /* Тут має бути логіка мобільного меню (бургера), 
-           але для спрощення лаби, ми просто приховаємо посилання */
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .nav-links {
-        display: none; /* Приховуємо посилання */
-    }
-    .btn-primary-nav {
-        display: none; /* Приховуємо кнопку */
-    }
+.department-item:hover h3 {
+    color: var(--white); 
+}
 
-    .top-bar-content {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .services-grid,
-    .departments-grid {
-        grid-template-columns: 1fr; /* 1 стовпчик на мобілках */
-    }
-    
-    .form-group-row {
-        flex-direction: column;
-        gap: 0;
-    }
+.department-item:hover p {
+    color: rgba(255, 255, 255, 0.8); 
+    opacity: 0.8;
 }
