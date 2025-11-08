@@ -131,8 +131,9 @@ p {
     font-weight: 600;
 }
 .btn-red-form:hover {
-    background-color: #c82333; 
-    border-color: #c82333;
+    background-color: transparent;
+    color: var(--secondary-color);
+    border-color: var(--secondary-color);
 }
 
 
@@ -155,7 +156,7 @@ p {
 }
 
 .contact-info span {
-    margin-right: 300px;
+    margin-right: 100px;
 }
 
 .contact-info i {
@@ -165,6 +166,7 @@ p {
 
 .auth-links {
     color: var(--white);
+    white-space: nowrap;
 }
 
 .auth-links a {
@@ -522,4 +524,183 @@ form select {
 .department-item:hover p {
     color: rgba(255, 255, 255, 0.8); 
     opacity: 0.8;
+}
+
+/* ======== 6. Mobile Navigation (Hidden on Desktop) ======== */
+.mobile-nav-toggle {
+    display: none; /* Приховано на десктопі */
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: var(--primary-color);
+    cursor: pointer;
+    z-index: 1001; /* Поверх інших елементів навігації */
+}
+
+.mobile-menu {
+    display: none; /* Приховано на десктопі */
+    position: absolute;
+    top: 100%; /* Одразу під хедером */
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 999;
+}
+
+.mobile-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.mobile-menu ul li a {
+    font-size: 18px;
+    font-weight: 500;
+    display: block; /* Робить посилання на всю ширину */
+    padding: 5px 0;
+}
+
+.mobile-menu .btn-red-nav {
+    width: 100%;
+    text-align: center;
+}
+
+/* Клас .active, який додає JavaScript, щоб показати меню */
+.mobile-menu.active {
+    display: block;
+}
+
+/* ======== 7. Адаптивність (Media Queries) ======== */
+
+/* Планшети (наприклад, iPad) */
+@media (max-width: 992px) {
+
+    /* --- Навігація --- */
+    .main-header {
+        position: fixed; /* Фіксуємо хедер на мобілках */
+        top: 0;
+        background-color: rgba(255, 255, 255, 0.95);
+    }
+    .top-bar {
+        display: none; /* Приховуємо верхню синю смугу */
+    }
+    .main-nav {
+        position: relative; /* Потрібно для .mobile-menu */
+    }
+    .nav-links,
+    .main-nav .btn-red-nav {
+        display: none; /* Приховуємо десктопне меню */
+    }
+    .mobile-nav-toggle {
+        display: block; /* Показуємо "бургер" */
+    }
+
+    /* --- Hero --- */
+    .hero {
+        padding-top: 150px; /* Більше відступу, оскільки хедер фіксований */
+        padding-bottom: 100px;
+        background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('./images/doctor-hero.jpg') no-repeat center center/cover;
+
+    }
+    .hero-content {
+        max-width: 80%; /* Дозволяємо тексту бути ширшим */
+        margin: 0 auto; /* Центруємо текст */
+        text-align: center;
+    }
+    .hero-content h1 {
+        font-size: 50px; /* Трохи менший шрифт */
+    }
+
+    /* Додайте це */
+    .form-content {
+        align-self: center; /* Центруємо по горизонталі */
+        width: 100%; /* Займає всю доступну ширину */
+        max-width: 600px; /* Але не ширше 600px */
+    }
+
+    /* --- About --- */
+
+
+    /* --- Services & Form --- */
+    .services-form {
+        padding-top: 60px;
+    }
+    .services-form-container {
+        flex-direction: column; /* Форма під сервісами */
+    }
+    .services-content {
+        margin-top: 0;
+        text-align: center;
+    }
+
+
+    .departments-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 стовпчики */
+        flex: 1; /* Скидаємо flex: 2 */
+    }
+}
+
+/* Мобільні телефони */
+@media (max-width: 768px) {
+    
+    /* --- Hero --- */
+    .hero{
+        background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url('./images/doctor-hero.jpg') no-repeat center center/cover;
+
+    }
+
+    .hero-content {
+        max-width: 100%; /* На всю ширину */
+    }
+    .hero-content h1 {
+        font-size: 40px; /* Ще менший шрифт */
+    }
+
+    /* --- Services --- */
+    .services-grid {
+        grid-template-columns: 1fr; /* 1 стовпчик */
+    }
+    .service-item {
+        /* Центруємо елементи сервісу */
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .department-container {
+        flex-direction: column;
+    }
+
+    /* --- Form --- */
+    .form-content {
+        padding: 30px 20px; /* Менше відступів по боках */
+    }
+
+    .about-container {
+        flex-direction: column;
+        padding-top: 60px;
+    }
+    .about-content {
+    text-align: center;
+    }
+
+    /* --- Priority --- */
+    .priority-content h2 {
+        font-size: 36px;
+    }
+
+    /* --- Departments --- */
+    .department-image {
+        display: none; /* Повністю приховуємо фото на малих екранах */
+    }
+    .about-image {
+        display: none; /* Повністю приховуємо фото на малих екранах */
+    }
+    .departments-grid {
+        grid-template-columns: 1fr; /* 1 стовпчик */
+        border-left: 1px solid var(--border-light); /* Додаємо рамку зліва (губиться, бо фото зникло) */
+    }
 }
